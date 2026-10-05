@@ -55,19 +55,6 @@
         }
     },
     {
-        "Name": "FlatGeobuf",
-        "Description": "Read-only binary spatial data file",
-        "Type": "machine-readable-data-file",
-        "Data interchange": {
-            "score": 2,
-            "explanation": "Single file readable and writable by GDAL, but not natively by all platforms"
-        },
-        "Cloud native GIS": {
-            "score": 3,
-            "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
-        }
-    },
-    {
         "Name": "GeoParquet",
         "Description": "Binary spatial data file",
         "Type": "machine-readable-data-file",
@@ -85,20 +72,16 @@
         }
     },
     {
-        "Name": "GeoPackage",
-        "Description": "SQLite-based binary spatial data file",
+        "Name": "FlatGeobuf",
+        "Description": "Read-only binary spatial data file",
         "Type": "machine-readable-data-file",
-        "Data analysis": {
-            "score": 1,
-            "explanation": "Row data layout means GeoPackages struggle analyzing larger datasets"
-        },
-        "Systems of record": {
-            "score": 2,
-            "explanation": "Row data layout is well-suited for individual edits"
-        },
         "Data interchange": {
+            "score": 2,
+            "explanation": "Single file readable and writable by GDAL, but not natively by all platforms"
+        },
+        "Cloud native GIS": {
             "score": 3,
-            "explanation": "Single file that every professional GIS platform can read and write"
+            "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
         }
     },
     {
@@ -120,6 +103,23 @@
         "Data interchange": {
             "score": 2,
             "explanation": "Designed to sync data between a system of record and an offline device"
+        }
+    },
+    {
+        "Name": "GeoPackage",
+        "Description": "SQLite-based binary spatial data file",
+        "Type": "machine-readable-data-file",
+        "Data analysis": {
+            "score": 1,
+            "explanation": "Row data layout means GeoPackages struggle analyzing larger datasets"
+        },
+        "Systems of record": {
+            "score": 2,
+            "explanation": "Row data layout is well-suited for individual edits"
+        },
+        "Data interchange": {
+            "score": 3,
+            "explanation": "Single file that every professional GIS platform can read and write"
         }
     },
     {
