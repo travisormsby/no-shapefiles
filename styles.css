@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+    overflow: hidden;
+}
+
+/* 1. Fully variable grid layout container */
+.container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols, 4), 1fr);
+    grid-auto-rows: calc((100vh - 60px - (var(--grid-rows, 4) - 1) * 20px) / var(--grid-rows, 4));
+    grid-auto-flow: dense;
+    gap: 20px;
+    padding: 30px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    border-left: 1px solid #e0e0e0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-btn {
+    padding: 12px 12px;
+    background-color: #D9D9D9;
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.active {
+    background-color: #25DA67;
+    color: #000000
+}
+
+.card {
+    background-color: transparent;
+    color: white;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-weight: bold;
+    font-size: 1.5rem;
+    opacity: 1;
+    grid-column: span 1;
+    grid-row: span 1;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    /* Ensures child elements exist in 3D space */
+}
+
+/* Trigger the flip on hover */
+.card:hover .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+/* 3. Position both the front and back faces absolute to stack them */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari support */
+    backface-visibility: hidden;
+    /* Hides the face when it's turned away */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Style the back side (pre-rotated so it faces backwards initially) */
+.flip-card-back {
+    background-color: #343a40;
+    color: white;
+    font-size: 1.5rem;
+    transform: rotateX(180deg);
+}
+
+
+
+.human-readable-data-file {
+    background-color: #EC6999;
+    color: #000000
+}
+
+.machine-readable-data-file {
+    background-color: #1876C9;
+    color: #ffffff
+}
+
+.database {
+    background-color: #FFC107;
+    color: #000000;
+}
+
+.display-tile {
+    background-color: #004D40;
+    color: #ffffff
+}
+
+
+.card.shrink {
+    display: none !important;
+}
+
+/* Independent layout sizes */
+.card.grow-rate-1 {
+    color: #212529;
+    font-size: 1.5rem;
+    grid-column: span 1;
+}
+
+.card.grow-rate-2 {
+    /* background-color: #7bccc4; */
+    color: #212529;
+    font-size: 3rem;
+    grid-column: span 2;
+}
+
+.card.grow-rate-3 {
+    /* background-color: #2b8cbe; */
+    font-size: 4.5rem;
+    grid-column: span 3;
+}
+
+.animating {
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 0.4s ease,
+        background-color 0.6s ease;
+}

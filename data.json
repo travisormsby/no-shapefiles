@@ -1,0 +1,279 @@
+[
+    {
+        "Name": "CSV",
+        "Description": "Tabular text file for geometry and attributes",
+        "Type": "human-readable-data-file",
+        "Data interchange": {
+            "score": 2,
+            "explanation": "Readable by nearly anything, but lack of standards leads to fragility"
+        }
+    },
+    {
+        "Name": "GeoJSON",
+        "Description": "Structured text file for geometry and attributes",
+        "Type": "human-readable-data-file",
+        "Data interchange": {
+            "score": 2,
+            "explanation": "JSON is native to the browser, but slow for large datasets"
+        }
+    },
+    {
+        "Name": "KML/KMZ",
+        "Description": "XML file of feature, geometry, attributes, and styling",
+        "Type": "human-readable-data-file",
+        "Data interchange": {
+            "score": 1
+        },
+        "Data visualization": {
+            "score": 1,
+            "explanation": "Includes styling, but format not widely supported"
+        }
+    },
+    {
+        "Name": "GPX",
+        "Description": "XML file of location tracks in space-time",
+        "Type": "human-readable-data-file",
+        "Data interchange": {
+            "score": 1
+        }
+    },
+    {
+        "Name": "DWG/DXF",
+        "Description": "Geometry, attributes, and metadata file",
+        "Type": "machine-readable-data-file",
+        "Data interchange": {
+            "score": 1
+        }
+    },
+    {
+        "Name": "Shapefile",
+        "Description": "Multi-file binary spatial data",
+        "Type": "machine-readable-data-file",
+        "Data interchange": {
+            "score": 1,
+            "explanation": "Use only if forced by legacy systems"
+        }
+    },
+    {
+        "Name": "FlatGeobuf",
+        "Description": "Read-only binary spatial data file",
+        "Type": "machine-readable-data-file",
+        "Data interchange": {
+            "score": 2,
+            "explanation": "Single file readable and writable by GDAL, but not natively by all platforms"
+        },
+        "Cloud native GIS": {
+            "score": 3,
+            "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
+        }
+    },
+    {
+        "Name": "GeoParquet",
+        "Description": "Binary spatial data file",
+        "Type": "machine-readable-data-file",
+        "Data analysis": {
+            "score": 3,
+            "explanation": "Column-oriented data format makes analysis faster"
+        },
+        "Data interchange": {
+            "score": 3,
+            "explanation": "Single file that every professional GIS platform can read and write"
+        },
+        "Cloud native GIS": {
+            "score": 3,
+            "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
+        }
+    },
+    {
+        "Name": "GeoPackage",
+        "Description": "SQLite-based binary spatial data file",
+        "Type": "machine-readable-data-file",
+        "Data analysis": {
+            "score": 1,
+            "explanation": "Row data layout means GeoPackages struggle analyzing larger datasets"
+        },
+        "Systems of record": {
+            "score": 2,
+            "explanation": "Row data layout is well-suited for individual edits"
+        },
+        "Data interchange": {
+            "score": 3,
+            "explanation": "Single file that every professional GIS platform can read and write"
+        }
+    },
+    {
+        "Name": "Mobile geodatabase",
+        "Description": "SQLite-based binary spatial data file",
+        "Type": "machine-readable-data-file",
+        "Esri products": {
+            "score": 2,
+            "explanation": "Designed for Field Maps, works well for smaller datasets in ArcGIS Pro"
+        },
+        "Data analysis": {
+            "score": 1,
+            "explanation": ""
+        },
+        "Systems of record": {
+            "score": 2,
+            "explanation": ""
+        },
+        "Data interchange": {
+            "score": 2,
+            "explanation": "Designed to sync data between a system of record and an offline device"
+        }
+    },
+    {
+        "Name": "File geodatabase",
+        "Description": "Multi-file binary spatial data",
+        "Type": "machine-readable-data-file",
+        "Esri products": {
+            "score": 2,
+            "explanation": "Default for solo work in ArcGIS Pro, doesn't scale well to multiple users"
+        },
+        "Data analysis": {
+            "score": 1,
+            "explanation": ""
+        },
+        "Systems of record": {
+            "score": 2
+        },
+        "Data interchange": {
+            "score": 2,
+            "explanation": ""
+        },
+        "Exposing as a service": {
+            "score": 1,
+            "explanation": "ArcGIS Enterprise map services published by copy"
+        }
+    },
+    {
+        "Name": "Enterprise geodatabase",
+        "Description": "Spatial relational database combining storage and compute",
+        "Type": "database",
+        "Esri products": {
+            "score": 3,
+            "explanation": "Read support across common modern desktop frameworks"
+        },
+        "Data analysis": {
+            "score": 2,
+            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+        },
+        "Systems of record": {
+            "score": 3
+        },
+        "Exposing as a service": {
+            "score": 3,
+            "explanation": "Can serve directly via HTTP range requests"
+        }
+    },
+    {
+        "Name": "PostgreSQL/PostGIS",
+        "Description": "Spatial relational database combining storage and compute",
+        "Type": "database",
+        "Data analysis": {
+            "score": 2,
+            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+        },
+        "Systems of record": {
+            "score": 3
+        },
+        "Exposing as a service": {
+            "score": 3,
+            "explanation": "Can serve directly via HTTP range requests"
+        },
+        "Cloud native GIS": {
+            "score": 2,
+            "explanation": "Can use Database-as-a-Service"
+        }
+    },
+    {
+        "Name": "Graph database",
+        "Description": "NoSQL database modeling entities and relationships",
+        "Type": "database",
+        "Esri products": {
+            "score": 1,
+            "explanation": "Used for ArcGIS Knowledge graphs"
+        },
+        "Data analysis": {
+            "score": 2,
+            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+        },
+        "Systems of record": {
+            "score": 2
+        },
+        "Exposing as a service": {
+            "score": 1,
+            "explanation": "ArcGIS Knowledge graph services"
+        }
+    },
+    {
+        "Name": "Spatio\u00adtemporal document store",
+        "Description": "Distributed NoSQL document database with spatiotemporal indexing",
+        "Type": "database",
+        "Esri products": {
+            "score": 1,
+            "explanation": "Used for real-time data and location tracking in ArcGIS Enterprise"
+        },
+        "Data analysis": {
+            "score": 2,
+            "explanation": "Highly optimized for big data analytics"
+        },
+        "Systems of record": {
+            "score": 2
+        },
+        "Exposing as a service": {
+            "score": 2,
+            "explanation": "Querying is done through REST web APIs by default"
+        }
+    },
+    {
+        "Name": "Cloud data warehouse",
+        "Description": "Relational database separating storage and compute",
+        "Type": "database",
+        "Data analysis": {
+            "score": 3,
+            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+        },
+        "Cloud native GIS": {
+            "score": 3
+        }
+    },
+    {
+        "Name": "PMTiles",
+        "Description": "Read-only geometry, labels, and styling",
+        "Type": "display-tile",
+        "Data visualization": {
+            "score": 3,
+            "explanation": "Renders multi-resolution overviews natively instantly"
+        },
+        "Cloud native GIS": {
+            "score": 3,
+            "explanation": "The gold standard for cloud-native imagery"
+        }
+    },
+    {
+        "Name": "MVT",
+        "Description": "Read-only geometry, labels, and styling",
+        "Type": "display-tile",
+        "Data visualization": {
+            "score": 3,
+            "explanation": "Renders multi-resolution overviews natively instantly"
+        },
+        "Exposing as a service": {
+            "score": 0
+        }
+    },
+    {
+        "Name": "Vector tile package",
+        "Description": "Read-only geometry, labels, and styling",
+        "Type": "display-tile",
+        "Esri products": {
+            "score": 3,
+            "explanation": "Read support across common modern desktop frameworks"
+        },
+        "Data visualization": {
+            "score": 3,
+            "explanation": "Renders multi-resolution overviews natively instantly"
+        }
+    }
+]
