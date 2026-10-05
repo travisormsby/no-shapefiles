@@ -59,7 +59,7 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
     opacity: 1;
-    grid-column: span 1;
+    grid-column: span 2;
     grid-row: span 1;
     width: 100%;
     height: 100%;
@@ -139,6 +139,7 @@ body {
     color: #212529;
     font-size: 1.5rem;
     grid-column: span 1;
+    grid-row: span 2;
 }
 
 .card.grow-rate-2 {
@@ -146,12 +147,14 @@ body {
     color: #212529;
     font-size: 3rem;
     grid-column: span 2;
+    grid-row: span 2
 }
 
 .card.grow-rate-3 {
     /* background-color: #2b8cbe; */
     font-size: 4.5rem;
-    grid-column: span 3;
+    grid-column: span 2;
+    grid-row: span 3
 }
 
 .animating {
