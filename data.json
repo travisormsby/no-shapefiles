@@ -254,6 +254,10 @@
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
+        "Exposing as a service": {
+            "score": 2,
+            "explanation": "Can be served from an API endpoint, but is best designed for serverless architecture"
+        },
         "Cloud native GIS": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and streamed serverless to web maps"
@@ -268,7 +272,8 @@
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
         "Exposing as a service": {
-            "score": 0
+            "score": 3,
+            "explanation": "Supports static spatial visualization services from GeoServer and other open-source platforms"
         }
     },
     {
@@ -277,11 +282,15 @@
         "Type": "display-tile",
         "Esri products": {
             "score": 3,
-            "explanation": "Supports vector tile services for basemap layers"
+            "explanation": "Used for basemaps in ArcGIS Enterprise, ArcGIS Online, and ArcGIS Pro"
         },
         "Data visualization": {
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
+        },
+        "Exposing as a service": {
+            "score": 3,
+            "explanation": "Used for vector tile services in ArcGIS Enterprise and ArcGIS Online"
         }
     }
 ]
