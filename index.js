@@ -1,13 +1,13 @@
 const container = document.getElementById('gridContainer');
 const sidebar = document.getElementById('sidebar')
-const typesHeader = document.getElementById('storage-types')
+const firstType = document.getElementsByClassName('type-btn')[0]
 const typeButtons = document.querySelectorAll('.type-btn')
 const resetBtn = document.getElementById('reset');
 let currentMode = 'baseline';
 
 import dataset from './data.json' with { type: 'json'}
 
-const properties = ["Esri products", "Data analysis", "Systems of record", "Exposing as a service", "Cloud native GIS", "Data interchange", "Data visualization"];
+const properties = ["Esri products", "Data analysis", "Systems of record", "For services", "Cloud native", "Data interchange", "Data visualization"];
 
 properties.forEach(prop => {
     const btn = document.createElement('button');
@@ -15,7 +15,7 @@ properties.forEach(prop => {
     btn.classList.add('control-btn', 'metric-btn');
     btn.textContent = prop;
     btn.onclick = () => toggleMetricFilter(prop, btn);
-    typesHeader.before(btn);
+    firstType.before(btn);
 });
 
 typeButtons.forEach(btn => {

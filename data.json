@@ -69,7 +69,7 @@
             "score": 3,
             "explanation": "Single file that every professional GIS platform can read and write"
         },
-        "Cloud native GIS": {
+        "Cloud native": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
         }
@@ -82,7 +82,7 @@
             "score": 2,
             "explanation": "Single file readable and writable by GDAL, but not natively by all platforms"
         },
-        "Cloud native GIS": {
+        "Cloud native": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
         }
@@ -145,7 +145,7 @@
             "score": 2,
             "explanation": "Familiar to ArcGIS users, though requires compression to share"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 1,
             "explanation": "Supports ArcGIS Enterprise map services published by copy"
         }
@@ -166,7 +166,7 @@
             "score": 3,
             "explanation": "Robust indexing, ACID-compliant updates, versioning, and archiving"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 3,
             "explanation": "Supports ArcGIS Enterprise map and feature services, both copied and referenced"
         }
@@ -183,11 +183,11 @@
             "score": 3,
             "explanation": "Robust indexing, ACID-compliant updates, and archiving"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 3,
             "explanation": "Supports OGC WMS and WFS services"
         },
-        "Cloud native GIS": {
+        "Cloud native": {
             "score": 2,
             "explanation": "Can use Database-as-a-Service"
         }
@@ -208,7 +208,7 @@
             "score": 2,
             "explanation": "Fast record access and ACID-compliant updates without needing indexing"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 1,
             "explanation": "ArcGIS Knowledge graph services"
         }
@@ -228,7 +228,7 @@
         "Systems of record": {
             "score": 0
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 2,
             "explanation": "Querying is done through REST web APIs by default"
         }
@@ -241,7 +241,7 @@
             "score": 3,
             "explanation": "Columnar data format optimized for service provider's compute platform"
         },
-        "Cloud native GIS": {
+        "Cloud native": {
             "score": 3,
             "explanation": "No idle resources, only pay for the compute and storage you use"
         }
@@ -254,11 +254,11 @@
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 2,
             "explanation": "Can be served from an API endpoint, but is best designed for serverless architecture"
         },
-        "Cloud native GIS": {
+        "Cloud native": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and streamed serverless to web maps"
         }
@@ -271,7 +271,7 @@
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 3,
             "explanation": "Supports static spatial visualization services from GeoServer and other open-source platforms"
         }
@@ -288,7 +288,7 @@
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
-        "Exposing as a service": {
+        "For services": {
             "score": 3,
             "explanation": "Used for vector tile services in ArcGIS Enterprise and ArcGIS Online"
         }
