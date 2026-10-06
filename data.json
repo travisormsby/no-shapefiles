@@ -22,11 +22,12 @@
         "Description": "XML file of feature, geometry, attributes, and styling",
         "Type": "human-readable-data-file",
         "Data interchange": {
-            "score": 1
+            "score": 1,
+            "explanation": "Share data with Google Earth and some drone platforms"
         },
         "Data visualization": {
             "score": 1,
-            "explanation": "Includes styling, but format not widely supported"
+            "explanation": "XML styling tags are usable, but unwieldy"
         }
     },
     {
@@ -34,7 +35,8 @@
         "Description": "XML file of location tracks in space-time",
         "Type": "human-readable-data-file",
         "Data interchange": {
-            "score": 1
+            "score": 1,
+            "explanation": "Share data with GPS units"
         }
     },
     {
@@ -42,7 +44,8 @@
         "Description": "Geometry, attributes, and metadata file",
         "Type": "machine-readable-data-file",
         "Data interchange": {
-            "score": 1
+            "score": 1,
+            "explanation": "Share data with CAD systems"
         }
     },
     {
@@ -60,7 +63,7 @@
         "Type": "machine-readable-data-file",
         "Data analysis": {
             "score": 3,
-            "explanation": "Column-oriented data format makes analysis faster"
+            "explanation": "Columnar data format and extensive metadata allow better query optimization"
         },
         "Data interchange": {
             "score": 3,
@@ -94,15 +97,15 @@
         },
         "Data analysis": {
             "score": 1,
-            "explanation": ""
+            "explanation": "Lacks columnar storage or sophisticated query optimizer"
         },
         "Systems of record": {
             "score": 2,
-            "explanation": ""
+            "explanation": "Record indexing for fast individual record reads and ACID-compliant updates"
         },
         "Data interchange": {
             "score": 2,
-            "explanation": "Designed to sync data between a system of record and an offline device"
+            "explanation": "Single file readable by most ArcGIS software"
         }
     },
     {
@@ -111,11 +114,11 @@
         "Type": "machine-readable-data-file",
         "Data analysis": {
             "score": 1,
-            "explanation": "Row data layout means GeoPackages struggle analyzing larger datasets"
+            "explanation": "Lacks columnar storage or sophisticated query optimizer"
         },
         "Systems of record": {
             "score": 2,
-            "explanation": "Row data layout is well-suited for individual edits"
+            "explanation": "Record indexing for fast individual record reads and ACID-compliant updates"
         },
         "Data interchange": {
             "score": 3,
@@ -128,22 +131,23 @@
         "Type": "machine-readable-data-file",
         "Esri products": {
             "score": 2,
-            "explanation": "Default for solo work in ArcGIS Pro, doesn't scale well to multiple users"
+            "explanation": "Ubiquitous due to being the default in ArcGIS Pro, but doesn't scale well to multiple users"
         },
         "Data analysis": {
             "score": 1,
-            "explanation": ""
+            "explanation": "Lacks columnar storage or sophisticated query optimizer"
         },
         "Systems of record": {
-            "score": 2
+            "score": 2,
+            "explanation": "Record indexing for fast individual record reads and ACID-compliant updates"
         },
         "Data interchange": {
             "score": 2,
-            "explanation": ""
+            "explanation": "Familiar to ArcGIS users, though requires compression to share"
         },
         "Exposing as a service": {
             "score": 1,
-            "explanation": "ArcGIS Enterprise map services published by copy"
+            "explanation": "Supports ArcGIS Enterprise map services published by copy"
         }
     },
     {
@@ -152,18 +156,19 @@
         "Type": "database",
         "Esri products": {
             "score": 3,
-            "explanation": "Read support across common modern desktop frameworks"
+            "explanation": "Primary enterprise-scale data storage in ArcGIS"
         },
         "Data analysis": {
             "score": 2,
-            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+            "explanation": "Sophisticated query engine, but lack of columnar storage slows down analysis of extremely large datasets"
         },
         "Systems of record": {
-            "score": 3
+            "score": 3,
+            "explanation": "Robust indexing, ACID-compliant updates, versioning, and archiving"
         },
         "Exposing as a service": {
             "score": 3,
-            "explanation": "Can serve directly via HTTP range requests"
+            "explanation": "Supports ArcGIS Enterprise map and feature services, both copied and referenced"
         }
     },
     {
@@ -172,14 +177,15 @@
         "Type": "database",
         "Data analysis": {
             "score": 2,
-            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+            "explanation": "Sophisticated query engines, but lack of columnar storage slows down analysis of extremely large datasets"
         },
         "Systems of record": {
-            "score": 3
+            "score": 3,
+            "explanation": "Robust indexing, ACID-compliant updates, and archiving"
         },
         "Exposing as a service": {
             "score": 3,
-            "explanation": "Can serve directly via HTTP range requests"
+            "explanation": "Supports OGC WMS and WFS services"
         },
         "Cloud native GIS": {
             "score": 2,
@@ -192,14 +198,15 @@
         "Type": "database",
         "Esri products": {
             "score": 1,
-            "explanation": "Used for ArcGIS Knowledge graphs"
+            "explanation": "Supports ArcGIS Knowledge graphs"
         },
         "Data analysis": {
             "score": 2,
-            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+            "explanation": "Highly optimized for graph analysis"
         },
         "Systems of record": {
-            "score": 2
+            "score": 2,
+            "explanation": "Fast record access and ACID-compliant updates without needing indexing"
         },
         "Exposing as a service": {
             "score": 1,
@@ -216,10 +223,10 @@
         },
         "Data analysis": {
             "score": 2,
-            "explanation": "Highly optimized for big data analytics"
+            "explanation": "Highly optimized for search, indexing, and aggregation analysis"
         },
         "Systems of record": {
-            "score": 2
+            "score": 0
         },
         "Exposing as a service": {
             "score": 2,
@@ -232,10 +239,11 @@
         "Type": "database",
         "Data analysis": {
             "score": 3,
-            "explanation": "Optimized byte ranges make window analysis exceptionally fast"
+            "explanation": "Columnar data format optimized for service provider's compute platform"
         },
         "Cloud native GIS": {
-            "score": 3
+            "score": 3,
+            "explanation": "No idle resources, only pay for the compute and storage you use"
         }
     },
     {
@@ -248,7 +256,7 @@
         },
         "Cloud native GIS": {
             "score": 3,
-            "explanation": "The gold standard for cloud-native imagery"
+            "explanation": "Can be stored cheaply in object storage and streamed serverless to web maps"
         }
     },
     {
@@ -269,7 +277,7 @@
         "Type": "display-tile",
         "Esri products": {
             "score": 3,
-            "explanation": "Read support across common modern desktop frameworks"
+            "explanation": "Supports vector tile services for basemap layers"
         },
         "Data visualization": {
             "score": 3,
