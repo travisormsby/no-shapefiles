@@ -55,6 +55,12 @@ for (const data of dataset) {
     backCard.classList.add('flip-card-back')
     backCard.textContent = data.Description
     innerCard.appendChild(backCard)
+
+    card.onclick = () => {
+        if (!card.classList.contains('shrink')) {
+            card.classList.toggle('flipped');
+        }
+    };
 }
 
 // Get a live-updating reference list of elements
@@ -170,7 +176,7 @@ resetBtn.addEventListener('click', () => {
         getCards().forEach((card, idx) => {
             card.style.transform = '';
             card.style.opacity = '1';
-            card.classList.remove('shrink', 'grow-rate-1', 'grow-rate-2', 'grow-rate-3');
+            card.classList.remove('shrink', 'grow-rate-1', 'grow-rate-2', 'grow-rate-3', 'flipped');
             card.classList.add('selected')
             const backCard = card.querySelector('.flip-card-back')
             backCard.textContent = dataset[idx]["Description"]

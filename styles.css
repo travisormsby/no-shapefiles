@@ -64,6 +64,7 @@ body {
     width: 100%;
     height: 100%;
     perspective: 1000px;
+    cursor: pointer
 }
 
 .flip-card-inner {
@@ -77,7 +78,7 @@ body {
 }
 
 /* Trigger the flip on hover */
-.card:hover .flip-card-inner {
+.card.flipped .flip-card-inner {
     transform: rotateX(180deg);
 }
 
