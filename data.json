@@ -3,7 +3,7 @@
         "Name": "CSV",
         "Description": "Tabular text file for geometry and attributes",
         "Type": "human-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 2,
             "explanation": "Readable by nearly anything, but lack of standards leads to fragility"
         }
@@ -12,7 +12,7 @@
         "Name": "GeoJSON",
         "Description": "Structured text file for geometry and attributes",
         "Type": "human-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 2,
             "explanation": "JSON is native to the browser, but slow for large datasets"
         }
@@ -21,11 +21,11 @@
         "Name": "KML/KMZ",
         "Description": "XML file of feature, geometry, attributes, and styling",
         "Type": "human-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 1,
             "explanation": "Share data with Google Earth and some drone platforms"
         },
-        "Data visualization": {
+        "Visualize": {
             "score": 1,
             "explanation": "XML styling tags are usable, but unwieldy"
         }
@@ -34,7 +34,7 @@
         "Name": "GPX",
         "Description": "XML file of location tracks in space-time",
         "Type": "human-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 1,
             "explanation": "Share data with GPS units"
         }
@@ -43,7 +43,7 @@
         "Name": "DWG/DXF",
         "Description": "Geometry, attributes, and metadata file",
         "Type": "machine-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 1,
             "explanation": "Share data with CAD systems"
         }
@@ -52,7 +52,7 @@
         "Name": "Shapefile",
         "Description": "Multi-file binary spatial data",
         "Type": "machine-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 1,
             "explanation": "Use only if forced by legacy systems"
         }
@@ -61,15 +61,15 @@
         "Name": "GeoParquet",
         "Description": "Binary spatial data file",
         "Type": "machine-readable-data-file",
-        "Data analysis": {
+        "Analyze": {
             "score": 3,
             "explanation": "Columnar data format and extensive metadata allow better query optimization"
         },
-        "Data interchange": {
+        "Interchange": {
             "score": 3,
             "explanation": "Single file that every professional GIS platform can read and write"
         },
-        "Cloud native": {
+        "Cloud": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
         }
@@ -78,11 +78,11 @@
         "Name": "FlatGeobuf",
         "Description": "Read-only binary spatial data file",
         "Type": "machine-readable-data-file",
-        "Data interchange": {
+        "Interchange": {
             "score": 2,
             "explanation": "Single file readable and writable by GDAL, but not natively by all platforms"
         },
-        "Cloud native": {
+        "Cloud": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and efficiently queried without a server"
         }
@@ -91,19 +91,19 @@
         "Name": "Mobile geodatabase",
         "Description": "SQLite-based binary spatial data file",
         "Type": "machine-readable-data-file",
-        "Esri products": {
+        "Esri": {
             "score": 2,
             "explanation": "Designed for Field Maps, works well for smaller datasets in ArcGIS Pro"
         },
-        "Data analysis": {
+        "Analyze": {
             "score": 1,
             "explanation": "Lacks columnar storage or sophisticated query optimizer"
         },
-        "Systems of record": {
+        "Record": {
             "score": 2,
             "explanation": "Record indexing for fast individual record reads and ACID-compliant updates"
         },
-        "Data interchange": {
+        "Interchange": {
             "score": 2,
             "explanation": "Single file readable by most ArcGIS software"
         }
@@ -112,15 +112,15 @@
         "Name": "GeoPackage",
         "Description": "SQLite-based binary spatial data file",
         "Type": "machine-readable-data-file",
-        "Data analysis": {
+        "Analyze": {
             "score": 1,
             "explanation": "Lacks columnar storage or sophisticated query optimizer"
         },
-        "Systems of record": {
+        "Record": {
             "score": 2,
             "explanation": "Record indexing for fast individual record reads and ACID-compliant updates"
         },
-        "Data interchange": {
+        "Interchange": {
             "score": 3,
             "explanation": "Single file that every professional GIS platform can read and write"
         }
@@ -129,23 +129,23 @@
         "Name": "File geodatabase",
         "Description": "Multi-file binary spatial data",
         "Type": "machine-readable-data-file",
-        "Esri products": {
+        "Esri": {
             "score": 2,
             "explanation": "Ubiquitous due to being the default in ArcGIS Pro, but doesn't scale well to multiple users"
         },
-        "Data analysis": {
+        "Analyze": {
             "score": 1,
             "explanation": "Lacks columnar storage or sophisticated query optimizer"
         },
-        "Systems of record": {
+        "Record": {
             "score": 2,
             "explanation": "Record indexing for fast individual record reads and ACID-compliant updates"
         },
-        "Data interchange": {
+        "Interchange": {
             "score": 2,
             "explanation": "Familiar to ArcGIS users, though requires compression to share"
         },
-        "For services": {
+        "Services": {
             "score": 1,
             "explanation": "Supports ArcGIS Enterprise map services published by copy"
         }
@@ -154,19 +154,19 @@
         "Name": "Enterprise geodatabase",
         "Description": "Spatial relational database combining storage and compute",
         "Type": "database",
-        "Esri products": {
+        "Esri": {
             "score": 3,
             "explanation": "Primary enterprise-scale data storage in ArcGIS"
         },
-        "Data analysis": {
+        "Analyze": {
             "score": 2,
             "explanation": "Sophisticated query engine, but lack of columnar storage slows down analysis of extremely large datasets"
         },
-        "Systems of record": {
+        "Record": {
             "score": 3,
             "explanation": "Robust indexing, ACID-compliant updates, versioning, and archiving"
         },
-        "For services": {
+        "Services": {
             "score": 3,
             "explanation": "Supports ArcGIS Enterprise map and feature services, both copied and referenced"
         }
@@ -175,19 +175,19 @@
         "Name": "PostgreSQL/PostGIS",
         "Description": "Spatial relational database combining storage and compute",
         "Type": "database",
-        "Data analysis": {
+        "Analyze": {
             "score": 2,
             "explanation": "Sophisticated query engines, but lack of columnar storage slows down analysis of extremely large datasets"
         },
-        "Systems of record": {
+        "Record": {
             "score": 3,
             "explanation": "Robust indexing, ACID-compliant updates, and archiving"
         },
-        "For services": {
+        "Services": {
             "score": 3,
             "explanation": "Supports OGC WMS and WFS services"
         },
-        "Cloud native": {
+        "Cloud": {
             "score": 2,
             "explanation": "Can use Database-as-a-Service"
         }
@@ -196,39 +196,39 @@
         "Name": "Graph database",
         "Description": "NoSQL database modeling entities and relationships",
         "Type": "database",
-        "Esri products": {
+        "Esri": {
             "score": 1,
             "explanation": "Supports ArcGIS Knowledge graphs"
         },
-        "Data analysis": {
+        "Analyze": {
             "score": 2,
             "explanation": "Highly optimized for graph analysis"
         },
-        "Systems of record": {
+        "Record": {
             "score": 2,
             "explanation": "Fast record access and ACID-compliant updates without needing indexing"
         },
-        "For services": {
+        "Services": {
             "score": 1,
             "explanation": "ArcGIS Knowledge graph services"
         }
     },
     {
-        "Name": "Spatio\u00adtemporal document store",
+        "Name": "Document store",
         "Description": "Distributed NoSQL document database with spatiotemporal indexing",
         "Type": "database",
-        "Esri products": {
+        "Esri": {
             "score": 1,
             "explanation": "Used for real-time data and location tracking in ArcGIS Enterprise"
         },
-        "Data analysis": {
+        "Analyze": {
             "score": 2,
             "explanation": "Highly optimized for search, indexing, and aggregation analysis"
         },
-        "Systems of record": {
+        "Record": {
             "score": 0
         },
-        "For services": {
+        "Services": {
             "score": 2,
             "explanation": "Querying is done through REST web APIs by default"
         }
@@ -237,11 +237,11 @@
         "Name": "Cloud data warehouse",
         "Description": "Relational database separating storage and compute",
         "Type": "database",
-        "Data analysis": {
+        "Analyze": {
             "score": 3,
             "explanation": "Columnar data format optimized for service provider's compute platform"
         },
-        "Cloud native": {
+        "Cloud": {
             "score": 3,
             "explanation": "No idle resources, only pay for the compute and storage you use"
         }
@@ -250,15 +250,15 @@
         "Name": "PMTiles",
         "Description": "Read-only geometry, labels, and styling",
         "Type": "display-tile",
-        "Data visualization": {
+        "Visualize": {
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
-        "For services": {
+        "Services": {
             "score": 2,
             "explanation": "Can be served from an API endpoint, but is best designed for serverless architecture"
         },
-        "Cloud native": {
+        "Cloud": {
             "score": 3,
             "explanation": "Can be stored cheaply in object storage and streamed serverless to web maps"
         }
@@ -267,11 +267,11 @@
         "Name": "MVT",
         "Description": "Read-only geometry, labels, and styling",
         "Type": "display-tile",
-        "Data visualization": {
+        "Visualize": {
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
-        "For services": {
+        "Services": {
             "score": 3,
             "explanation": "Supports static spatial visualization services from GeoServer and other open-source platforms"
         }
@@ -280,15 +280,15 @@
         "Name": "Vector tile package",
         "Description": "Read-only geometry, labels, and styling",
         "Type": "display-tile",
-        "Esri products": {
+        "Esri": {
             "score": 3,
             "explanation": "Used for basemaps in ArcGIS Enterprise, ArcGIS Online, and ArcGIS Pro"
         },
-        "Data visualization": {
+        "Visualize": {
             "score": 3,
             "explanation": "Renders multi-resolution overviews natively instantly"
         },
-        "For services": {
+        "Services": {
             "score": 3,
             "explanation": "Used for vector tile services in ArcGIS Enterprise and ArcGIS Online"
         }

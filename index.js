@@ -7,7 +7,7 @@ let currentMode = 'baseline';
 
 import dataset from './data.json' with { type: 'json'}
 
-const properties = ["Esri products", "Data analysis", "Systems of record", "For services", "Cloud native", "Data interchange", "Data visualization"];
+const properties = ["Esri", "Analyze", "Record", "Services", "Cloud", "Interchange", "Visualize"];
 
 properties.forEach(prop => {
     const btn = document.createElement('button');
