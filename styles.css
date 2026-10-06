@@ -9,8 +9,38 @@ body {
     display: flex;
     height: 100svh;
     background-color: #f0f2f5;
-    overflow: scroll;
+    overflow: hidden;
     flex-direction: column;
+}
+
+h1,
+h2 {
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+}
+
+h1 {
+    margin-top: 5vh;
+    font-size: 10cqw;
+}
+
+h2 {
+    font-size: 4cqw;
+    margin: 0 20px auto 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    margin: 50px 0;
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    min-height: 0;
 }
 
 /* 1. Fully variable grid layout container */
@@ -41,7 +71,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    font-size: .8rem;
+    font-size: .95rem;
     grid-column: span 1;
     grid-row: span 1;
 }
@@ -149,8 +179,8 @@ body {
     /* background-color: #7bccc4; */
     color: #212529;
     font-size: 1rem;
-    grid-column: span 2;
-    grid-row: span 2
+    grid-column: span 4;
+    grid-row: span 1
 }
 
 .card.grow-rate-3 {
