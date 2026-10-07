@@ -151,8 +151,9 @@ function animateLayout(updateFunction) {
             return;
         }
 
-        const deltaX = first.left - last.left;
-        const deltaY = first.top - last.top;
+        const isReturning = first.width === 0;
+        const deltaX = isReturning ? 0 : first.left - last.left;
+        const deltaY = isReturning ? 0 : first.top - last.top;
         const deltaW = last.width === 0 ? 1 : first.width / last.width;
         const deltaH = last.height === 0 ? 1 : first.height / last.height;
 
