@@ -69,7 +69,6 @@ getCards().forEach(card => {
     card.addEventListener('transitionend', (e) => {
         if (e.propertyName === 'transform') {
             card.classList.remove('animating');
-            // If the card is shrinking, clear inline styles so display: none activates
             if (card.classList.contains('shrink')) {
                 card.style.cssText = '';
             }
@@ -118,10 +117,21 @@ function animateLayout(updateFunction) {
     const rects = new Map();
     const cardsList = getCards();
 
+    // 1. Instantly strip all inline styles, transitions, and tracking classes
     cardsList.forEach(card => {
         card.classList.remove('animating');
+        card.style.cssText = ''; // Clears transform, fixed positioning, opacity, etc.
+    });
+
+    // 2. Force a browser reflow so everything snaps to its clean layout state
+    void container.offsetHeight;
+
+    // 3. Now it is 100% safe to record the clean baseline coordinates
+    cardsList.forEach(card => {
         rects.set(card, card.getBoundingClientRect());
     });
+
+    // 4. Update the layout constraints
 
     updateFunction();
 
