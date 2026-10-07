@@ -65,10 +65,15 @@ for (const data of dataset) {
 
 // Get a live-updating reference list of elements
 const getCards = () => document.querySelectorAll('.card');
-
 getCards().forEach(card => {
     card.addEventListener('transitionend', (e) => {
-        if (e.propertyName === 'transform') card.classList.remove('animating');
+        if (e.propertyName === 'transform') {
+            card.classList.remove('animating');
+            // If the card is shrinking, clear inline styles so display: none activates
+            if (card.classList.contains('shrink')) {
+                card.style.cssText = '';
+            }
+        }
     });
 });
 
@@ -125,8 +130,24 @@ function animateLayout(updateFunction) {
         const last = card.getBoundingClientRect();
 
         if (card.classList.contains('shrink')) {
-            card.style.transform = 'scale(0)';
-            card.style.opacity = '0';
+            // Temporarily override display: none and lock it to its starting position
+            card.style.display = 'flex';
+            card.style.position = 'fixed';
+            card.style.top = `${first.top}px`;
+            card.style.left = `${first.left}px`;
+            card.style.width = `${first.width}px`;
+            card.style.height = `${first.height}px`;
+            card.style.transform = 'scale(1)';
+            card.style.opacity = '1';
+
+            // Trigger the scale down transition on the next frames
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    card.classList.add('animating');
+                    card.style.transform = 'scale(0)';
+                    card.style.opacity = '0';
+                });
+            });
             return;
         }
 

@@ -164,7 +164,7 @@ img {
 
 
 .card.shrink {
-    display: none !important;
+    display: none;
 }
 
 /* Independent layout sizes */
