@@ -52,6 +52,7 @@ img {
     grid-auto-flow: dense;
     gap: 5px;
     padding: 10px;
+    overflow-y: scroll;
 }
 
 .sidebar {
@@ -107,6 +108,11 @@ img {
     transition: transform 0.8s;
     transform-style: preserve-3d;
     /* Ensures child elements exist in 3D space */
+}
+
+.card.flipped {
+    grid-column: span 4 !important;
+    grid-row: span 3 !important;
 }
 
 /* Trigger the flip on hover */

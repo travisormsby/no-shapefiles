@@ -58,7 +58,9 @@ for (const data of dataset) {
 
     card.onclick = () => {
         if (!card.classList.contains('shrink')) {
-            card.classList.toggle('flipped');
+            animateLayout(() => {
+                card.classList.toggle('flipped');
+            });
         }
     };
 }
