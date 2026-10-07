@@ -77,8 +77,8 @@ img {
 }
 
 .active {
-    background-color: #25DA67;
-    color: #000000
+    background-color: #000000;
+    color: #ffffff
 }
 
 .card {
@@ -143,23 +143,23 @@ img {
 
 
 .human-readable-data-file {
-    background-color: #EC6999;
-    color: #000000
+    background-color: #991400;
+    color: #ffffff
 }
 
 .machine-readable-data-file {
-    background-color: #1876C9;
+    background-color: #125B9B;
     color: #ffffff
 }
 
 .database {
-    background-color: #FFC107;
+    background-color: #00CCAA;
     color: #000000;
 }
 
 .display-tile {
-    background-color: #004D40;
-    color: #ffffff
+    background-color: #FFC107;
+    color: #000000
 }
 
 
