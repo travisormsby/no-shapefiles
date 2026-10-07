@@ -128,6 +128,13 @@ function animateLayout(updateFunction) {
     cardsList.forEach(card => {
         const first = rects.get(card);
         const last = card.getBoundingClientRect();
+        const wasHidden = first.width === 0;
+        const isHiddenNow = card.classList.contains('shrink');
+
+        // Scenario A: Card was hidden and stays hidden. Skip entirely.
+        if (wasHidden && isHiddenNow) {
+            return;
+        }
 
         if (card.classList.contains('shrink')) {
             // Temporarily override display: none and lock it to its starting position
