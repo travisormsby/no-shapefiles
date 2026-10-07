@@ -150,6 +150,7 @@ function animateLayout(updateFunction) {
             // Temporarily override display: none and lock it to its starting position
             card.style.display = 'flex';
             card.style.position = 'fixed';
+            card.style.transformOrigin = 'top left'
             card.style.top = `${first.top}px`;
             card.style.left = `${first.left}px`;
             card.style.width = `${first.width}px`;
