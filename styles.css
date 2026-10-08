@@ -78,7 +78,7 @@ img {
 }
 
 .active {
-    background-color: #0F172A;
+    background-color: #343a40;
     color: #ffffff
 }
 
@@ -136,6 +136,8 @@ img {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Style the back side (pre-rotated so it faces backwards initially) */
@@ -144,6 +146,8 @@ img {
     color: white;
     font-size: 0.9rem;
     transform: rotateX(180deg);
+    text-align: left;
+    padding: 1.4rem;
 }
 
 
@@ -200,4 +204,9 @@ img {
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
         opacity 0.4s ease,
         background-color 0.6s ease;
+    overflow: hidden
+}
+
+.card:not(.flipped) .flip-card-back {
+    color: transparent
 }
