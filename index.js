@@ -26,7 +26,7 @@ typeButtons.forEach(btn => {
                 const type = dataRecord.Type
                 if (type === btn.id && card.classList.contains('selected')) {
                     card.classList.toggle('shrink');
-                    card.classList.toggle('filtered');
+                    card.classList.remove('flipped')
                     resetBtn.classList.remove('active')
                 }
             });
@@ -58,6 +58,9 @@ for (const data of dataset) {
 
     card.onclick = () => {
         if (!card.classList.contains('shrink')) {
+            if (resetBtn.classList.contains('active')) {
+                resetBtn.classList.remove('active')
+            }
             animateLayout(() => {
                 card.classList.toggle('flipped');
             });
@@ -231,7 +234,7 @@ resetBtn.addEventListener('click', () => {
 function toggleMetricFilter(property, activeBtn) {
     document.querySelectorAll('.control-btn').forEach(btn => {
         btn.classList.remove('active')
-        btn.classList.add(btn.id) // Resets the storage type filter, temp fix until can persist filter across metric selections
+        btn.classList.add(btn.id)
     })
     activeBtn.classList.add('active');
     animateLayout(() => {
@@ -241,7 +244,7 @@ function toggleMetricFilter(property, activeBtn) {
             const score = propMetrics ? propMetrics.score : 0;
             const backCard = card.querySelector('.flip-card-back')
 
-            card.classList.remove('shrink', 'grow-rate-1', 'grow-rate-2', 'grow-rate-3');
+            card.classList.remove('shrink', 'grow-rate-1', 'grow-rate-2', 'grow-rate-3', 'flipped');
 
             if (score === 0) {
                 card.classList.add('shrink');
