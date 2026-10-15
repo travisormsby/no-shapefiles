@@ -7,7 +7,7 @@ let currentMode = 'baseline';
 
 import dataset from './data.json' with { type: 'json'}
 
-const properties = ["Esri", "Analysis", "Records", "Services", "Cloud", "Share", "Display"];
+const properties = ["Esri", "Services", "Cloud", "Analysis", "Records", "Display", "Share"];
 
 properties.forEach(prop => {
     const btn = document.createElement('button');
@@ -62,6 +62,12 @@ for (const data of dataset) {
                 resetBtn.classList.remove('active')
             }
             animateLayout(() => {
+                const flippedCards = () => document.querySelectorAll('.flipped');
+                flippedCards().forEach(flippedCard => {
+                    if (flippedCard != card) {
+                        flippedCard.classList.remove('flipped')
+                    }
+                })
                 card.classList.toggle('flipped');
             });
         }
