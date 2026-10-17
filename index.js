@@ -92,9 +92,10 @@ function calculateGrid() {
 
     if (currentMode === 'baseline') {
         // Determine a standard grid layout square template based on baseline element pool size
-        const baseCols = Math.floor(Math.sqrt(cardsList.length) / 2) * 2; // Ensures even number of cols, b/c cards are 2x cols wide
-        const baseRows = Math.ceil(cardsList.length / (baseCols / 2)); // Extra rows in card ratio causes sub-optimal packing
-        container.style.setProperty('--grid-cols', baseCols);
+        const gridTemplate = window.getComputedStyle(container).getPropertyValue("grid-template-columns")
+        const columns = gridTemplate.trim().split(/\s+/)
+        const baseCols = columns.length
+        const baseRows = Math.ceil(cardsList.length / (baseCols / 2));
         container.style.setProperty('--grid-rows', baseRows);
         return;
     }
