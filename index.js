@@ -35,7 +35,6 @@ typeButtons.forEach(btn => {
     }
 })
 
-
 // Generate elements dynamically
 for (const data of dataset) {
     const card = document.createElement('div');
@@ -53,10 +52,13 @@ for (const data of dataset) {
 
     const backCard = document.createElement('div');
     backCard.classList.add('flip-card-back')
-    backCard.textContent = data.Description
+    backCard.innerHTML = data.Description
     innerCard.appendChild(backCard)
 
-    card.onclick = () => {
+    card.onclick = (event) => {
+        if (event.target.closest('a')) {
+            return;
+        }
         if (!card.classList.contains('shrink')) {
             if (resetBtn.classList.contains('active')) {
                 resetBtn.classList.remove('active')
@@ -259,7 +261,7 @@ function toggleMetricFilter(property, activeBtn) {
             } else {
                 card.classList.add(`grow-rate-${score}`);
                 card.classList.add('selected');
-                backCard.textContent = propMetrics.explanation
+                backCard.innerHTML = propMetrics.explanation
             }
         });
     })

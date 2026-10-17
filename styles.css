@@ -43,6 +43,23 @@ img {
     min-height: 0;
 }
 
+p+p {
+    margin-top: 5%;
+}
+
+
+a:link,
+a:visited,
+a:hover {
+    color: #9ECFFF;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #ff9e47;
+    text-decoration: underline;
+}
+
 /* 1. Fully variable grid layout container */
 .container {
     flex: 1;
@@ -129,6 +146,7 @@ img {
 .flip-card-front,
 .control-btn {
     font-weight: 600;
+    align-items: center;
 }
 
 /* 3. Position both the front and back faces absolute to stack them */
@@ -141,12 +159,11 @@ img {
     /* Safari support */
     backface-visibility: hidden;
     /* Hides the face when it's turned away */
-    display: flex;
-    align-items: center;
     justify-content: center;
+    display: flex;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
+    padding: 2rem;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -158,6 +175,7 @@ img {
     font-size: 0.9rem;
     transform: rotateY(180deg);
     text-align: left;
+    flex-direction: column;
 }
 
 .human-readable-data-file {
@@ -230,6 +248,10 @@ img {
 
     .flip-card-back {
         padding: 4rem;
+    }
+
+    .flip-card-front {
+        font-size: 4.5rem;
     }
 
     .card.flipped {
