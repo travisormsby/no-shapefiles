@@ -216,7 +216,7 @@
     },
     {
         "Name": "RDBMS",
-        "Description": "<p>A relational database managment system (RDBMS) is manages SQL databases, optionally with spatial datatypes</p><p>The most common RDBMS implementations are PostgreSQL, Oracle, and SQL Server. Esri's enterprise geodatabase and relational store are created in an RDBMS",
+        "Description": "<p>A relational database management system (RDBMS) is manages SQL databases, optionally with spatial datatypes</p><p>The most common RDBMS implementations are PostgreSQL, Oracle, and SQL Server. Esri's enterprise geodatabase and relational store are created in an RDBMS",
         "Type": "database",
         "Esri": {
             "score": 3,
