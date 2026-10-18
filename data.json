@@ -79,7 +79,7 @@
         "Type": "machine-readable-data-file",
         "Share": {
             "score": 1,
-            "explanation": "FlatGeoBuf is usable for sharing read-only data because of its convenient single file format and fast access speed.</p><p>Flat Buffers make the file size larger than other formats, and it is not universally supported by all GIS platforms out of the box."
+            "explanation": "FlatGeoBuf is usable for sharing read-only data because of its convenient single file format and fast access speed.</p><p>Flat Buffers make the file size larger than other binary formats, and it is not universally supported by all GIS platforms out of the box."
         },
         "Cloud": {
             "score": 3,
@@ -207,7 +207,7 @@
         },
         "Records": {
             "score": 1,
-            "explanation": "<p>A graph database is used for systems of record when data is best modeled as entities and relationships.</p><p>The way it organizes data means a graph database typically has fast record access and ACID-compliant updates without needing indexing.</p>"
+            "explanation": "<p>A graph database is used for systems of record when data is best modeled as entities and relationships.</p><p>Indexing and entity relationships mean a graph database typically has fast record access and typically ACID-compliant updates.</p>"
         },
         "Services": {
             "score": 1,
@@ -236,7 +236,7 @@
         },
         "Cloud": {
             "score": 2,
-            "explanation": "<p>A relational database is good for cloud native GIS when deployed using a Database-as-a-Service (DBaaS) such as Amazon Aurora, Azure SQL Database, or Google Cloud SQL.</p><p>DBaaS allows effectively infinite scaling and offloads maintenance tasks to the service provider. The trade off for this flexibility is increased operating costs.</p>"
+            "explanation": "<p>A relational database is good for cloud native GIS when deployed using a Database-as-a-Service (DBaaS) such as Amazon Aurora, Azure SQL Database, or Google Cloud SQL.</p><p>DBaaS enables easier scaling and offloads maintenance tasks to the service provider. The trade off for this flexibility is increased operating costs.</p>"
         }
     }
 ]
