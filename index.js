@@ -233,7 +233,7 @@ resetBtn.addEventListener('click', () => {
             card.classList.remove('shrink', 'grow-rate-1', 'grow-rate-2', 'grow-rate-3', 'flipped');
             card.classList.add('selected')
             const backCard = card.querySelector('.flip-card-back')
-            backCard.textContent = dataset[idx]["Description"]
+            backCard.innerHTML = dataset[idx]["Description"]
         });
         removeActive()
         calculateGrid();
