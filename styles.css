@@ -13,44 +13,10 @@ body {
     flex-direction: column;
 }
 
-h1,
-h2 {
-    text-align: center;
-    width: 100%;
-    white-space: nowrap;
-}
-
-h1 {
-    margin-top: 3vh;
-    font-size: 10vw;
-}
-
-h2 {
-    font-size: 4vw;
-    margin: 0 auto;
-}
-
-.qr-container {
-    background-color: #f5f6f6;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-}
-
-img {
-    margin: 3vh;
-    width: 100vw;
-    max-height: 45vh;
-    object-fit: contain;
-    min-height: 0;
-}
 
 p+p {
     margin-top: 5%;
 }
-
 
 a:link,
 a:visited,
@@ -92,6 +58,32 @@ a:active {
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
 }
+
+.utility-group {
+    grid-column: span 1;
+    grid-row: span 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.utility-group .control-btn {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.utility-group .control-btn svg {
+    /* Constrains bounds inside padding box */
+    display: block;
+    pointer-events: none;
+    /* Prevents click-event targeting glitches on paths */
+}
+
 
 .control-btn {
     padding: 10px;
@@ -239,6 +231,58 @@ a:active {
     color: transparent
 }
 
+/* Modal Overlay Background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    background-color: rgba(15, 23, 42, 0.85);
+    /* Semi-transparent Slate 900 */
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    /* Higher than your .card.flipped stack */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Toggle Class */
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Content Container */
+.modal-content {
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.modal-content img {
+    max-width: 80vw;
+    max-height: 80vh;
+    min-width: 50vw;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: #f5f6f6;
+    /* Ensures code stays high contrast */
+    padding: 15px;
+    margin: 0 0 2vh 0;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+
 /* Desktop responsiveness */
 @media (width >=1200px) {
     .container {
@@ -283,5 +327,11 @@ a:active {
     .control-btn,
     .card {
         font-size: clamp(0.5rem, 2.3vh + 0.5rem, 4.5rem);
+    }
+
+    .utility-group .control-btn svg {
+        width: 55%;
+        /* Constrains bounds inside padding box */
+        height: 55%;
     }
 }

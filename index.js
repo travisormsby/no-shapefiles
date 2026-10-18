@@ -9,6 +9,22 @@ import dataset from './data.json' with { type: 'json'}
 
 const properties = ["Esri", "Services", "Cloud", "Analysis", "Records", "Display", "Share"];
 
+const shareBtn = document.getElementById('share');
+const qrModal = document.getElementById('qrModal');
+
+// Open modal when share button is tapped
+if (shareBtn && qrModal) {
+    shareBtn.onclick = (e) => {
+        e.stopPropagation(); // Prevents interaction from triggering parent sidebar bubbles
+        qrModal.classList.add('open');
+    };
+
+    // Close modal when tapping anywhere on the overlay screen
+    qrModal.onclick = () => {
+        qrModal.classList.remove('open');
+    };
+}
+
 properties.forEach(prop => {
     const btn = document.createElement('button');
     btn.id = prop.replaceAll(' ', '')
