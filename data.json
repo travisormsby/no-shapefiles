@@ -18,25 +18,25 @@
         }
     },
     {
-        "Name": "KML / KMZ",
-        "Description": "<p>Keyhole Markup Language (KML) is a standardized structured text format for describing feature geometry, attributes, and styling using XML.</p><p>KMZ is a zipped collection of KML files for describing complex datasets and styling.</p>",
-        "Type": "human-readable-data-file",
-        "Share": {
-            "score": 1,
-            "explanation": "<p>A KML/KMZ file is usable for sharing data because it has a published OGC standard that makes interoperability relatively common.</p><p>GIS platforms can typically convert, export, and display KML/KMZ files, but generally can't use them directly for editing or analysis.</p>"
-        },
-        "Display": {
-            "score": 1,
-            "explanation": "<p>A KML/KMZ file is usable for display because it contain XML tags for styling.</p><p>The styling options are limited, however, and can be difficult to use.</p>"
-        }
-    },
-    {
         "Name": "GPX",
         "Description": "<p>GPS Exchange Format (GPX) is a structured text format for describing waypoints in space-time using Extensible Markup Language (XML). It can also store routes (collections of waypoints) and tracks (collections of routes).</p><p>Some platforms extend the format to include attributes beyond a timestamp.</p>",
         "Type": "human-readable-data-file",
         "Share": {
             "score": 1,
-            "explanation": "<p>GPX files are usable for sharing data between GPS units and GIS platforms.</p><p>GIS platforms can typically convert and export GPX files, but generally can't use them directly for visualization, editing, or analysis.</p>"
+            "explanation": "<p>A GPX file is good for sharing data between GPS units and GIS platforms.</p><p>GIS platforms can typically convert and export GPX files, but generally can't use them directly for visualization, editing, or analysis.</p>"
+        }
+    },
+    {
+        "Name": "KML / KMZ",
+        "Description": "<p>Keyhole Markup Language (KML) is a standardized structured text format for describing feature geometry, attributes, and styling using XML.</p><p>KMZ is a zipped collection of KML files for describing complex datasets and styling.</p>",
+        "Type": "human-readable-data-file",
+        "Share": {
+            "score": 1,
+            "explanation": "<p>A KML/KMZ file is good for for sharing data with Google Earth and some drone platforms that expect it.</p><p>Because it has an OGC standard specification, GIS platforms can typically convert, export, and display KML/KMZ files, but generally can't use them directly for editing or analysis.</p>"
+        },
+        "Display": {
+            "score": 1,
+            "explanation": "<p>A KML/KMZ file is usable for display because it contain XML tags for styling.</p><p>The styling options are limited, however, and can be difficult to use.</p>"
         }
     },
     {
@@ -45,67 +45,7 @@
         "Type": "machine-readable-data-file",
         "Share": {
             "score": 1,
-            "explanation": "<p>DWG and DXF files are usable for sharing data between CAD and GIS platforms. Because the formats are largely controlled by Autodesk, 100% interoperability has been technically and legally challenging.</p><p>GIS platforms can typically convert, export, and view these files, but generally can't use them directly for editing or analysis.</p>"
-        }
-    },
-    {
-        "Name": "Shapefile",
-        "Description": "<p><p>A shapefile is several files that together represent a spatial dataset. It requires a .shp for the feature geometry, a .shx for the shape index, and a .dbf for the non-spatial attributes.</p><p>A shapefile can include optional files, such as .prj for the projection, .cpg for character encoding, .sbn/.sbx for the spatial index, and .xml for metadata.</p></p>",
-        "Type": "machine-readable-data-file",
-        "Share": {
-            "score": 1,
-            "explanation": "<p>Shapefiles are usable for sharing data with legacy systems that require a shapefile. Useless otherwise.</p><p>A format so bad there's an <a href='http://switchfromshapefile.org' target=_blank>entire webpage</a> dedicated to hating it.</p>"
-        }
-    },
-    {
-        "Name": "GeoParquet",
-        "Description": "<p>GeoParquet is an extension of the open standard Parquet binary file format with spatial data types. The format is immutable, which means files cannot be edited in place, only overwritten.</p><p>They store data in columns instead of rows, and have extensive metadata on row groups within columns</p><p>",
-        "Type": "machine-readable-data-file",
-        "Analysis": {
-            "score": 3,
-            "explanation": "<p>GeoParquet files are excellent for analysis because column orientation and row group metadata enable a query to read only the necessary data.</p><p>This can dramatically reduce disk I/O and therefore increase analysis speed."
-        },
-        "Share": {
-            "score": 2,
-            "explanation": "<p>GeoParquet is good for sharing read-only data between GIS platforms because it uses sophisticated data compression algorithms to reduce file size.</p><p>GIS platforms can usually convert, export, analyze, and display GeoParquet, but the immutable design of GeoParquet makes them unsuitable for editing directly.</p>"
-        },
-        "Cloud": {
-            "score": 3,
-            "explanation": "<p>GeoParquet is excellent for cloud native GIS because it can be stored cheaply in object storage like S3.</p><p>Its column-oriented storage, row group metadata, and support for HTTP range requests enable efficient queries without a server.</p>"
-        }
-    },
-    {
-        "Name": "FlatGeobuf",
-        "Description": "<p>FlatGeobuf encodes geospatial data using Flat Buffers and indexed using a Hilbert curve.</p><p>This makes FlatGeobuf very fast to query because it can use the index to access just the data for a given location, and use Flat Buffers to read data directly into memory without decompression or deserialization.</p>",
-        "Type": "machine-readable-data-file",
-        "Share": {
-            "score": 1,
-            "explanation": "FlatGeoBuf is usable for sharing read-only data because of its convenient single file format and fast access speed.</p><p>Flat Buffers make the file size larger than other formats, and it is not universally supported by all GIS platforms out of the box."
-        },
-        "Cloud": {
-            "score": 3,
-            "explanation": "<p>FlatGeobuf is excellent for cloud native GIS because it can be stored cheaply in object storage like S3.</p><p>Its Hilbert-curve indexing, use of Flat Buffers, and support for HTTP range requests enable efficient bounding box queries without a server.</p>"
-        }
-    },
-    {
-        "Name": "SQLite",
-        "Description": "<p>A SQLite file is a storage format readable and writable by applications that implement the SQLite in-process database engine. Spatial SQLite adds geospatial datatypes.</p><p>The the most common spatial SQLite implementations are the OGC-standard GeoPackage and Esri's mobile geodatabase.</p>",
-        "Type": "machine-readable-data-file",
-        "Esri": {
-            "score": 2,
-            "explanation": "<p>Implemented as a mobile geodatabase, spatial SQLite is good to use for offline data editing with ArcGIS Field Maps and for solo work in ArcGIS Pro.</p>"
-        },
-        "Analysis": {
-            "score": 2,
-            "explanation": "<p>Spatial SQLite is good for analysis of small or medium size geospatial datasets.</p><p>The lack of columnar storage or a sophisticated query optimizer, however, make it less good for large datasets.</p>"
-        },
-        "Records": {
-            "score": 2,
-            "explanation": "<p>SQLite is good as a system of record because it uses indexing for fast individual record reads and has ACID-compliant updates.</p><p>It is limited by the inability to support multiple simultaneous editors."
-        },
-        "Share": {
-            "score": 3,
-            "explanation": "<p>Implemented as a GeoPackage, spatial SQLite is excellent for sharing data because it is an OGC-standard format that GIS platforms can use directly for conversion, export, analysis, editing, and display.</p><p>A GeoPackage a holds terabytes of data and doesn't cut off field names. Use it instead of a shapefile.</p>"
+            "explanation": "<p>DWG and DXF files are good for sharing data between CAD and GIS platforms. Because the formats are largely controlled by Autodesk, 100% interoperability has been technically and legally challenging.</p><p>GIS platforms can typically convert, export, and view these files, but generally can't use them directly for editing or analysis.</p>"
         }
     },
     {
@@ -131,6 +71,66 @@
         "Services": {
             "score": 1,
             "explanation": "<p>A file geodatabase is usable for read-only map services published to ArcGIS Server.</p><p>Disk I/O limits its useability for service-based editing workflows.</p>"
+        }
+    },
+    {
+        "Name": "FlatGeobuf",
+        "Description": "<p>FlatGeobuf encodes geospatial data using Flat Buffers and indexed using a Hilbert curve.</p><p>This makes FlatGeobuf very fast to query because it can use the index to access just the data for a given location, and use Flat Buffers to read data directly into memory without decompression or deserialization.</p>",
+        "Type": "machine-readable-data-file",
+        "Share": {
+            "score": 1,
+            "explanation": "FlatGeoBuf is usable for sharing read-only data because of its convenient single file format and fast access speed.</p><p>Flat Buffers make the file size larger than other formats, and it is not universally supported by all GIS platforms out of the box."
+        },
+        "Cloud": {
+            "score": 3,
+            "explanation": "<p>FlatGeobuf is excellent for cloud native GIS because it can be stored cheaply in object storage like S3.</p><p>Its Hilbert-curve indexing, use of Flat Buffers, and support for HTTP range requests enable efficient bounding box queries without a server.</p>"
+        }
+    },
+    {
+        "Name": "GeoParquet",
+        "Description": "<p>GeoParquet is an extension of the open standard Parquet binary file format with spatial data types. The format is immutable, which means files cannot be edited in place, only overwritten.</p><p>They store data in columns instead of rows, and have extensive metadata on row groups within columns</p><p>",
+        "Type": "machine-readable-data-file",
+        "Analysis": {
+            "score": 3,
+            "explanation": "<p>GeoParquet files are excellent for analysis because column orientation and row group metadata enable a query to read only the necessary data.</p><p>This can dramatically reduce disk I/O and therefore increase analysis speed."
+        },
+        "Share": {
+            "score": 2,
+            "explanation": "<p>GeoParquet is good for sharing read-only data between GIS platforms because it uses sophisticated data compression algorithms to reduce file size.</p><p>GIS platforms can usually convert, export, analyze, and display GeoParquet, but the immutable design of GeoParquet makes them unsuitable for editing directly.</p>"
+        },
+        "Cloud": {
+            "score": 3,
+            "explanation": "<p>GeoParquet is excellent for cloud native GIS because it can be stored cheaply in object storage like S3.</p><p>Its column-oriented storage, row group metadata, and support for HTTP range requests enable efficient queries without a server.</p>"
+        }
+    },
+    {
+        "Name": "Shapefile",
+        "Description": "<p><p>A shapefile is several files that together represent a spatial dataset. It requires a .shp for the feature geometry, a .shx for the shape index, and a .dbf for the non-spatial attributes.</p><p>A shapefile can include optional files, such as .prj for the projection, .cpg for character encoding, .sbn/.sbx for the spatial index, and .xml for metadata.</p></p>",
+        "Type": "machine-readable-data-file",
+        "Share": {
+            "score": 1,
+            "explanation": "<p>Shapefiles are usable for sharing data with legacy systems that require a shapefile. Useless otherwise.</p><p>A format so bad there's an <a href='http://switchfromshapefile.org' target=_blank>entire webpage</a> dedicated to hating it.</p>"
+        }
+    },
+    {
+        "Name": "SQLite",
+        "Description": "<p>A SQLite file is a storage format readable and writable by applications that implement the SQLite in-process database engine. Spatial SQLite adds geospatial datatypes.</p><p>The the most common spatial SQLite implementations are the OGC-standard GeoPackage and Esri's mobile geodatabase.</p>",
+        "Type": "machine-readable-data-file",
+        "Esri": {
+            "score": 2,
+            "explanation": "<p>Implemented as a mobile geodatabase, spatial SQLite is good to use for offline data editing with ArcGIS Field Maps and for solo work in ArcGIS Pro.</p>"
+        },
+        "Analysis": {
+            "score": 2,
+            "explanation": "<p>Spatial SQLite is good for analysis of small or medium size geospatial datasets.</p><p>The lack of columnar storage or a sophisticated query optimizer, however, make it less good for large datasets.</p>"
+        },
+        "Records": {
+            "score": 2,
+            "explanation": "<p>SQLite is good as a system of record because it uses indexing for fast individual record reads and has ACID-compliant updates.</p><p>It is limited by the inability to support multiple simultaneous editors."
+        },
+        "Share": {
+            "score": 3,
+            "explanation": "<p>Implemented as a GeoPackage, spatial SQLite is excellent for sharing data because it is an OGC-standard format that GIS platforms can use directly for conversion, export, analysis, editing, and display.</p><p>A GeoPackage is a single file that holds terabytes of data and doesn't cut off field names. Use it instead of a shapefile.</p>"
         }
     },
     {
@@ -164,28 +164,33 @@
         }
     },
     {
-        "Name": "Relational database",
-        "Description": "<p>A relational database is a SQL database implemented in a relational database managment system (RDBMS). Spatial relational databases add spatial datatypes</p><p>The most common implementations are in PostgreSQL, Oracle, Microsoft SQL Server, and Esri's enterprise geodatabase and relational store.",
+        "Name": "Cloud data warehouse",
+        "Description": "<p>A cloud data warehouse is an elastic query compute engine that accesses data in separate object storage. You pay-as-you-go for analysis instead of keeping a database running.</p><p>The most common implementations are Snowflake, Amazon Redshift, and Google BigQuery.</p>",
         "Type": "database",
-        "Esri": {
-            "score": 3,
-            "explanation": "<p>Implemented as an enterprise geodatabase, a spatial relational database is excellent to use with ArcGIS because it adds schemas and stored procedures specific to ArcGIS.</p><p>Implemented as a relational store, it holds data for hosted feature layers in ArcGIS Online or ArcGIS Enterprise.</p>"
-        },
         "Analysis": {
             "score": 2,
-            "explanation": "<p>A spatial relational database is good for analysis because it has a sophisticated engine for optimizing queries with spatial predicates.</p><p>The lack of columnar storage, however, can slow down analysis for the very largest datasets.</p>"
-        },
-        "Records": {
-            "score": 3,
-            "explanation": "<p>A spatial relational database is excellent for systems of record because it uses robust indexing for fast lookups, ACID-compliant updates for safe updates, and archiving for viewing historic data.</p><p>Esri enterprise geodatabases also use versioning for multi-user editing.</p>"
-        },
-        "Services": {
-            "score": 3,
-            "explanation": "<p>A relational database is excellent for exposing data as services because it is designed for multiple simultaneous connections. </p><p>A spatial relational database supports OGC WMS and WFS formats, and Esri enterprise geodatabases additionally support ArcGIS map and feature services.</p>"
+            "explanation": "<p>A cloud data warehouse is good for big data analysis because it stores data in a columnar format that is highly optimized for the service provider's specific query engine.</p><p>That benefit comes at the cost of increased complexity.</p>"
         },
         "Cloud": {
             "score": 2,
-            "explanation": "<p>A relational database is good for cloud native GIS when deployed using a Database-as-a-Service (DBaaS) such as Amazon Aurora, Azure SQL Database, or Google Cloud SQL.</p><p>DBaaS allows effectively infinite scaling and offloads maintenance tasks to the service provider. The trade off for this flexibility is increased operating costs.</p>"
+            "explanation": "<p>A cloud data warehouse is good for cloud native big data workflows because you can scale the warehouse arbitrarily large without any idle resources. You only pay for the storage and compute you actually use.</p><p>That benefit comes at the cost of increased complexity.</p>"
+        }
+    },
+    {
+        "Name": "Document store",
+        "Description": "<p>A document store is a distributed NoSQL database for storing and indexing JSON documents. It can use spatiotemporal indexing to make it useful for GIS workflows.</p><p>The most common implementations are Elasticsearch and OpenSearch.</p>",
+        "Type": "database",
+        "Esri": {
+            "score": 1,
+            "explanation": "<p>Implemented as the spatiotemporal big data store, a document store is used for persisting real-time data in ArcGIS Enterprise.</p><p>It is useful when the volume or velocity of data is too high for the relational store to handle effectively.</p>"
+        },
+        "Analysis": {
+            "score": 2,
+            "explanation": "<p>A document store with a spatiotemporal index is good for analysis that is based on search or aggregation.</p><p>The sophisticated indexing makes it possible to return queries across billions of documents very quickly.</p>"
+        },
+        "Services": {
+            "score": 2,
+            "explanation": "<p>A document store is good for exposing data as services because querying the store is generally done through REST web APIs by default.</p>"
         }
     },
     {
@@ -210,33 +215,28 @@
         }
     },
     {
-        "Name": "Document store",
-        "Description": "<p>A document store is a distributed NoSQL database for storing and indexing JSON documents. It can use spatiotemporal indexing to make it useful for GIS workflows.</p><p>The most common implementations are Elasticsearch and OpenSearch.</p>",
+        "Name": "RDBMS",
+        "Description": "<p>A relational database managment system (RDBMS) is software for creating a relational database. Spatial relational databases add spatial datatypes</p><p>The most common RDBMS implementations are PostgreSQL, Oracle, Microsoft SQL Server. Esri's enterprise geodatabase and relational store are created in an RDBMS",
         "Type": "database",
         "Esri": {
-            "score": 1,
-            "explanation": "<p>Implemented as the spatiotemporal big data store, a document store is used for persisting real-time data in ArcGIS Enterprise.</p><p>It is useful when the volume or velocity of data is too high for the relational store to handle effectively.</p>"
+            "score": 3,
+            "explanation": "<p>Implemented as an enterprise geodatabase, a spatial relational database is excellent to use with ArcGIS because it adds schemas and stored procedures specific to ArcGIS.</p><p>Implemented as a relational store, it holds data for hosted feature layers in ArcGIS Online or ArcGIS Enterprise.</p>"
         },
         "Analysis": {
             "score": 2,
-            "explanation": "<p>A document store with a spatiotemporal index is good for analysis that is based on search or aggregation.</p><p>The sophisticated indexing makes it possible to return queries across billions of documents very quickly.</p>"
+            "explanation": "<p>A spatial relational database is good for analysis because it has a sophisticated engine for optimizing queries with spatial predicates.</p><p>The lack of columnar storage, however, can slow down analysis for the very largest datasets.</p>"
+        },
+        "Records": {
+            "score": 3,
+            "explanation": "<p>A spatial relational database is excellent for systems of record because it uses robust indexing for fast lookups, ACID-compliant updates for safe updates, and archiving for viewing historic data.</p><p>Esri enterprise geodatabases also use versioning for multi-user editing.</p>"
         },
         "Services": {
-            "score": 2,
-            "explanation": "<p>A document store is good for exposing data as services because querying the store is generally done through REST web APIs by default.</p>"
-        }
-    },
-    {
-        "Name": "Cloud data warehouse",
-        "Description": "<p>A cloud data warehouse is an elastic query compute engine that accesses data in separate object storage. You pay-as-you-go for analysis instead of keeping a database running.</p><p>The most common implementations are Snowflake, Amazon Redshift, and Google BigQuery.</p>",
-        "Type": "database",
-        "Analysis": {
-            "score": 2,
-            "explanation": "<p>A cloud data warehouse is good for big data analysis because it stores data in a columnar format that is highly optimized for the service provider's specific query engine.</p><p>That benefit comes at the cost of increased complexity.</p>"
+            "score": 3,
+            "explanation": "<p>A relational database is excellent for exposing data as services because it is designed for multiple simultaneous connections. </p><p>A spatial relational database supports OGC WMS and WFS formats, and Esri enterprise geodatabases additionally support ArcGIS map and feature services.</p>"
         },
         "Cloud": {
             "score": 2,
-            "explanation": "<p>A cloud data warehouse is good for cloud native big data workflows because you can scale the warehouse arbitrarily large without any idle resources. You only pay for the storage and compute you actually use.</p><p>That benefit comes at the cost of increased complexity.</p>"
+            "explanation": "<p>A relational database is good for cloud native GIS when deployed using a Database-as-a-Service (DBaaS) such as Amazon Aurora, Azure SQL Database, or Google Cloud SQL.</p><p>DBaaS allows effectively infinite scaling and offloads maintenance tasks to the service provider. The trade off for this flexibility is increased operating costs.</p>"
         }
     }
 ]
