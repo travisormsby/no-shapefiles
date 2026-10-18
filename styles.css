@@ -62,15 +62,15 @@ a:active {
 .utility-group {
     grid-column: span 1;
     grid-row: span 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* Centers items cleanly on the horizontal axis line */
     gap: 5px;
 }
 
 .utility-group .control-btn {
-    grid-column: auto;
-    grid-row: auto;
-    width: 100%;
+    flex: 1;
     height: 100%;
     display: flex;
     align-items: center;
@@ -81,7 +81,8 @@ a:active {
     /* Constrains bounds inside padding box */
     display: block;
     pointer-events: none;
-    /* Prevents click-event targeting glitches on paths */
+    width: calc(1.8vh + 10px);
+    height: calc(1.8vh + 10px);
 }
 
 
@@ -329,9 +330,8 @@ a:active {
     }
 
     .utility-group .control-btn svg {
-        width: 55%;
-        /* Constrains bounds inside padding box */
-        height: 55%;
+        width: calc(2.4vh + 10px);
+        height: calc(2.4vh + 10px);
     }
 
     .modal-content img {
