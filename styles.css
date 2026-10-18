@@ -21,12 +21,12 @@ h2 {
 }
 
 h1 {
-    margin-top: 5vh;
-    font-size: 10cqw;
+    margin-top: 3vh;
+    font-size: 10vw;
 }
 
 h2 {
-    font-size: 4cqw;
+    font-size: 4vw;
     margin: 0 auto;
 }
 
@@ -40,9 +40,9 @@ h2 {
 }
 
 img {
-    margin: 50px 0;
+    margin: 3vh;
     width: 100vw;
-    max-height: 50vh;
+    max-height: 45vh;
     object-fit: contain;
     min-height: 0;
 }
@@ -283,6 +283,5 @@ a:active {
     .card,
     .flip-card-back {
         font-size: clamp(0.5rem, 2.3vh + 0.5rem, 4.5rem);
-        ;
     }
 }
