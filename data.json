@@ -19,7 +19,7 @@
     },
     {
         "Name": "KML / KMZ",
-        "Description": "<p>Keyhole Markup Language (KML) is a standardized structured text format for describing feature geometry, attributes, and styling using Extensible Markup Language (XML). KMZ is a zipped collection of KML files for describing complex datasets and styling.</p><p>The format was originally designed for Google Earth, but has since become an OGC standard.</p>",
+        "Description": "<p>Keyhole Markup Language (KML) is a standardized structured text format for describing feature geometry, attributes, and styling using XML.</p><p>KMZ is a zipped collection of KML files for describing complex datasets and styling.</p>",
         "Type": "human-readable-data-file",
         "Share": {
             "score": 1,
@@ -50,7 +50,7 @@
     },
     {
         "Name": "Shapefile",
-        "Description": "<p><p>A shapefile is several files that together represent a spatial dataset. It requires a .shp for the feature geometry, a .shx for the index, and a .dbf for the non-spatial attributes.</p><p>A shapefile can include optional files, such as .prj for the projection, .cpg for character encoding, .sbn/.sbx for the spatial index, and .xml for metadata.</p></p>",
+        "Description": "<p><p>A shapefile is several files that together represent a spatial dataset. It requires a .shp for the feature geometry, a .shx for the shape index, and a .dbf for the non-spatial attributes.</p><p>A shapefile can include optional files, such as .prj for the projection, .cpg for character encoding, .sbn/.sbx for the spatial index, and .xml for metadata.</p></p>",
         "Type": "machine-readable-data-file",
         "Share": {
             "score": 1,
