@@ -58,11 +58,11 @@
         },
         "Analysis": {
             "score": 1,
-            "explanation": "<p>A File geodatabase is useable for analysis of small datasets within ArcGIS Pro.</p><p>The lack of columnar storage or a sophisticated query optimizer, however, make it less good for large datasets.</p>"
+            "explanation": "<p>A File geodatabase is useable for analysis of small or medium size datasets within ArcGIS Pro.</p><p>The lack of columnar storage or a sophisticated query optimizer, however, make it less good for large datasets.</p>"
         },
         "Records": {
-            "score": 2,
-            "explanation": "<p>A file geodatabase is good as a system of record within ArcGIS Pro because it uses indexing for fast individual record reads and has ACID-compliant updates.</p><p>Lack of full support outside ArcGIS Pro, however, makes it less useful as a system of record in other contexts."
+            "score": 1,
+            "explanation": "<p>A file geodatabase is used as a system of record for non-critical data within ArcGIS because it is the default option and has indexing for fast individual record reads</p><p>Lack of ACID-compliant transactions, however, make it inappropriate for critical data."
         },
         "Share": {
             "score": 2,
@@ -121,8 +121,8 @@
             "explanation": "<p>Implemented as a mobile geodatabase, spatial SQLite is good to use for offline data editing with ArcGIS Field Maps and for solo work in ArcGIS Pro.</p>"
         },
         "Analysis": {
-            "score": 2,
-            "explanation": "<p>Spatial SQLite is good for analysis of small or medium size geospatial datasets.</p><p>The lack of columnar storage or a sophisticated query optimizer, however, make it less good for large datasets.</p>"
+            "score": 1,
+            "explanation": "<p>Spatial SQLite is usable for analysis of small or medium size geospatial datasets.</p><p>The lack of columnar storage or a sophisticated query optimizer, however, make it less good for large datasets.</p>"
         },
         "Records": {
             "score": 2,
