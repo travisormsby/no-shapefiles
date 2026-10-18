@@ -267,7 +267,6 @@ a:active {
 .modal-content img {
     max-width: 80vw;
     max-height: 80vh;
-    min-width: 50vw;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     background: #f5f6f6;
@@ -333,5 +332,9 @@ a:active {
         width: 55%;
         /* Constrains bounds inside padding box */
         height: 55%;
+    }
+
+    .modal-content img {
+        min-height: 50vh;
     }
 }
