@@ -273,7 +273,7 @@ a:active {
     background: #f5f6f6;
     /* Ensures code stays high contrast */
     padding: 15px;
-    margin: 0 0 2vh 0;
+    margin: 2vh;
 }
 
 .modal-content p {
